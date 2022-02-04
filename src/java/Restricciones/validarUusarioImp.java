@@ -32,7 +32,7 @@ public class validarUusarioImp  implements validarUsuario{
                 for(int i=0; i<listaUsuarios.size();i++)
                 {
                     usu = listaUsuarios.get(i);
-                    if (usu.getCI_USUARIO_CARGO().equals(usuario) && usu.getCONTRACENIA().equals(contracenia) ){
+                    if ((usu.getUSUARIO().equals(usuario)) &&( usu.getCONTRACENIA().equals(contracenia)) ){
                        return true; 
                     }                                 
                 }

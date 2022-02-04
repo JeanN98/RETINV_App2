@@ -18,7 +18,7 @@ public class FactoryConnectionDb{
     //public static final int PGSQL = 2;
     //public static final int MONGO = 3;
 
-    public static String[] configSQLSERVER = {"inventario", "", ""};  //configrar copnexion: nombre bd, usr, clave
+    public static String[] configSQLSERVER = {"", "", ""};  //configrar copnexion: nombre bd, usr, clave
 //    public static String[] configPGSQL = {"inventario", "", ""};      //configrar copnexion: nombre bd, usr, clave
 //    public static String[] configMONGO = {"inventario", "", ""};      //configrar copnexion: nombre bd, usr, clave
     

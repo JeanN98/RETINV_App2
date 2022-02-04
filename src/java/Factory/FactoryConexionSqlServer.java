@@ -27,16 +27,7 @@ public final class FactoryConexionSqlServer extends  ConnectionDb {
         
          @Override
     public Connection open() {   //implementacion del metodo abstracto que abre bd
-        
-  
-        
-        
-        
-        String urlDatos = "jdbc:sqlserver://localhost:1433;"
-              + "database=retinvtDB;"
-               +"user=sa;"
-               +"password= 12345;"
-               +"loginTimeout=30;"; 
+        String urlDatos = "jdbc:sqlserver://localhost:49671;databaseName=retinvtDB;user=sa; password=12345"; 
         try{
           Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
           this.connection = DriverManager.getConnection(urlDatos);  //subindice 0: nombre bd. paremtro 1: usr; parametro 2: clave.. llega en constructor

@@ -42,8 +42,8 @@ public class CapaDeDatos {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-      /*  usuario_cargo usu = new usuario_cargo(0, "0605816602", 1, "stalin","0959440770", "Av Simepre viva", "Stalin","admin");
+     /*   
+       usuario_cargo usu = new usuario_cargo( "0605816602", 1, "stalin","0959440770", "Av Simepre viva", "Stalin","admin");
         usuario_cargoDao usua= new usuariio_cargoImp();
         
     
@@ -52,21 +52,21 @@ public class CapaDeDatos {
         bodega_sucursalDao bodeDao = new bodega_sucursalImp();
         empleado emple = new empleado("0602963233", "Darwin", "Av Alborada del sur ", "29-12-2021", "01-01-2022", 1);
         empleadoDao empleDao = new empleadoImp();
-    */
+    
         
-        
+        */
        // empleDao.save(emple);
        //bodeDao.save(bode);
         //empleDao.save(emple);
         
-     /*   empleadoService empleImp = new empleadoServiceImp();
+   /*   empleadoService empleImp = new empleadoServiceImp();
 
         
         
          usua.save(usu);
          bodeDao.save(bode);
-         empleDao.save(emple);
-         */
+         empleDao.save(emple);*/
+         
        //  empleImp.regsitrarEmpleado();
       // empleImp.listarEmpleados();
       // empleImp.buscarEmpleado();
@@ -125,14 +125,14 @@ public class CapaDeDatos {
         usuario_cargoDao usua= new usuariio_cargoImp();
         
        Inv.ArticulosSucursal(usu, 1);*/
-     validarUsuario validar = new validarUusarioImp  ();
+    validarUsuario validar = new validarUusarioImp  ();
      
-     if (validar.validarUsario("0605816602", "admin")){
+     if (validar.validarUsario("stalincopa2", "Admin")){
             System.out.println("El usuario exsite");
             } else{
          System.out.println("El usuario no existe");
      }
-     
+    
          }
     
 }

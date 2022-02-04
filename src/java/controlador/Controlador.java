@@ -35,7 +35,7 @@ public class Controlador extends HttpServlet {
                 if (validar.validarUsario(nombre, contracenia))
                     request.getRequestDispatcher(home).forward(request, response);
                 else 
-                     request.getRequestDispatcher("vistas/index.jsp").forward(request, response);
+                     request.getRequestDispatcher("index.jsp").forward(request, response);
             }
           
     }
