@@ -31,7 +31,7 @@ public class usuariio_cargoImp implements usuario_cargoDao {
         boolean save = true;        //bandera para indicar si se almacenaron los cambios
         
         try {
-             //es cero cuando se esta ingresando un registro nuevo: ver inicializac'on del atributo 
+              if (usuario.getID_USUARIO_CARGO()== 0) { //es cero cuando se esta ingresando un registro nuevo: ver inicializac'on del atributo 
                 StringBuilder sql = new StringBuilder();   //para crear la sentencia sql
                 sql.append("INSERT INTO [dbo].[USUARIO_CARGO](\n" +
 "           [CI_USUARIO_CARGO]\n" +
@@ -48,7 +48,22 @@ public class usuariio_cargoImp implements usuario_cargoDao {
                 sql.append("', '").append(usuario.getDIRECCION());
                 sql.append("', '").append(usuario.getUSUARIO());
                 sql.append("', '").append(usuario.getCONTRACENIA()).append("')"); //crear la cadena de conexion
-                this.conn.execute(sql.toString());      //ejecuta la query
+                this.conn.execute(sql.toString());  
+              }else{
+                  StringBuilder sql = new StringBuilder();
+                  
+               sql.append("UPDATE [dbo].[USUARIO_CARGO] SET [CI_USUARIO_CARGO] = ").append(usuario.getCI_USUARIO_CARGO());
+                sql.append(", [ROL] = '").append(usuario.getROl());
+                sql.append("',[NOMBRE] = ").append(usuario.getNOMBRE());      //crear la cadena de conexion
+                sql.append(", [TELEFONO] = ").append(usuario.getTELEFONO());
+                sql.append(", [DIRECCION] = ").append(usuario.getDIRECCION());  
+                sql.append(", [USUARIO] = ").append(usuario.getUSUARIO()); 
+                sql.append(", [CONTRACENIA] = ").append(usuario.getCONTRACENIA()) 
+                .append(" WHERE [ID_USUARIO_CARGO] = ").append(usuario.getID_USUARIO_CARGO());      //crear la cadena de conexion
+                this.conn.execute(sql.toString()); 
+              
+              
+              }//ejecuta la query
                
            
             save = true;                                //cambia estado de bandera

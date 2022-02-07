@@ -30,7 +30,7 @@
 			<i class="zmdi zmdi-account-circle"></i>
 		</p>
 		<p class="text-center text-condensedLight">Inicie sesión con su cuenta</p>
-		<form action="Controlador ">
+		<form action="Controlador">
 			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 			    <input class="mdl-textfield__input" type="text" id="userName" name="usuario">
 			    <label class="mdl-textfield__label" for="userName">Nombre de usuario</label>

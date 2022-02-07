@@ -26,6 +26,7 @@ import dao.kardexDao;
 import dao.kardexImp;
 import dao.usuariio_cargoImp;
 import dao.usuario_cargoDao;
+import java.util.List;
 import model.articulo;
 import model.bodega_sucursal;
 import model.empleado;
@@ -125,9 +126,21 @@ public class CapaDeDatos {
         usuario_cargoDao usua= new usuariio_cargoImp();
         
        Inv.ArticulosSucursal(usu, 1);*/
-    validarUsuario validar = new validarUusarioImp  ();
      
-     if (validar.validarUsario("stalincopa2", "Admin")){
+     usuario_cargo usu = new usuario_cargo( "0605816602", 1, "stalin","0959440770", "Av Simepre viva", "Stalin","admin");
+        usuario_cargoDao usua= new usuariio_cargoImp();
+        usua.save(usu);
+      
+         List <usuario_cargo>lista= usua.list();
+         
+         for (int i=0; i < lista.size();i++ )
+         {
+             System.out.println(lista.get(i).getID_USUARIO_CARGO());
+         
+         }
+    validarUsuario validar = new validarUusarioImp();
+     
+     if (validar.validarUsario("jean", "jean")){
             System.out.println("El usuario exsite");
             } else{
          System.out.println("El usuario no existe");
