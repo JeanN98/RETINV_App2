@@ -40,7 +40,7 @@
 			    <label class="mdl-textfield__label" for="pass">Contraseña</label>
 			</div>
                     <div>
-                    <input  class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit" value="ingresar" name="accion"> <i class="zmdi zmdi-mail-send"></i> 
+                    <input  class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit" value="ingresar" name="accion"> <i style="color:blue;"class="zmdi zmdi-mail-send"></i> 
                     </div>
 		</form>
 	</div>
