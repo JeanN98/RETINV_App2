@@ -17,8 +17,7 @@ public class bodega_sucursal {
    private String  TELEFONO;
    private int   ID_USUARIO_CARGO;
 
-    public bodega_sucursal(int ID_BODEGA, String RUC_SUCURSAL, String NOMBRE, String DIRECCION, String TELEFONO, int ID_USUARIO_CARGO) {
-        this.ID_BODEGA = ID_BODEGA;
+    public bodega_sucursal( String RUC_SUCURSAL, String NOMBRE, String DIRECCION, String TELEFONO, int ID_USUARIO_CARGO) {
         this.RUC_SUCURSAL = RUC_SUCURSAL;
         this.NOMBRE = NOMBRE;
         this.DIRECCION = DIRECCION;

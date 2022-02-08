@@ -226,32 +226,32 @@
 								Nuevo Administrator
 							</div>
 							<div class="full-width panel-content">
-								<form>
+								<form action="adminController">
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 											<h5 class="text-condensedLight">Datos Administrator</h5>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="CIAdmin">
+												<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="CIAdmin" name = "CI_ADMIN">
 												<label class="mdl-textfield__label" for="CIAdmin">CI</label>
 												<span class="mdl-textfield__error">CI inválido</span>
 											</div>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameAdmin">
+												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameAdmin" name="NOMBRE_ADMIN">
 												<label class="mdl-textfield__label" for="NameAdmin">Nombre</label>
 												<span class="mdl-textfield__error">Nombre inválido</span>
 											</div>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="LastNameAdmin">
+												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="LastNameAdmin"  name="APELLIDO_ADMIN">
 												<label class="mdl-textfield__label" for="LastNameAdmin">Apellido</label>
 												<span class="mdl-textfield__error">Apellido inválido</span>
 											</div>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="phoneAdmin">
+												<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="phoneAdmin"  name="PHONE_ADMIN">
 												<label class="mdl-textfield__label" for="phoneAdmin">Teléfono</label>
 												<span class="mdl-textfield__error">Número de teléfono invalido</span>
 											</div>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" id="addressAdmin">
+												<input class="mdl-textfield__input" type="text" id="addressAdmin" name="DIRECCION_ADMIN">
 												<label class="mdl-textfield__label" for="addressAdmin">Dirección</label>
 												<span class="mdl-textfield__error">Dirección inválida</span>
 											</div>
@@ -259,12 +259,12 @@
 										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 											<h5 class="text-condensedLight">Detalles de la Cuenta</h5>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ]*(\.[0-9]+)?" id="UserNameAdmin">
+												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ]*(\.[0-9]+)?" id="UserNameAdmin" name="USUARIO_ADMIN">
 												<label class="mdl-textfield__label" for="UserNameAdmin">Nombre de usuario</label>
 												<span class="mdl-textfield__error">Nombre de usuario no válido</span>
 											</div>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="password" id="passwordAdmin">
+												<input class="mdl-textfield__input" type="password" id="passwordAdmin"  name="PASSWORD_ADMIN">
 												<label class="mdl-textfield__label" for="passwordAdmin">Contraseña</label>
 												<span class="mdl-textfield__error">Contraseña invalida</span>
 											</div>
@@ -272,10 +272,7 @@
 										</div>
 									</div>
 									<p class="text-center">
-										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addAdmin">
-											<i class="zmdi zmdi-plus"></i>
-										</button>
-										<div class="mdl-tooltip" for="btn-addAdmin">Agregar administrador</div>
+										 <input  class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit" value="ingresar" name="accion"> 
 									</p>
 								</form>
 							</div>

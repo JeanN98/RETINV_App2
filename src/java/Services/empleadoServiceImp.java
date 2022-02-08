@@ -23,31 +23,12 @@ public class empleadoServiceImp implements empleadoService {
     public ValidacionCedula ValidarCedula = new ValidacionCedula();
     
     @Override
-    public void regsitrarEmpleado() {
-        String CI;
-        String Nombre;
-        String Direccion;
-        String FechaInicio;
-        String FechaFin;
-        
-        System.out.println("Porfavor Inserta los datos del nuevo empleado a modificar");
-        
-        System.out.println("Cedula:");
-        CI= sc.nextLine();
-        System.out.println("Nombre");
-        Nombre= sc.nextLine();
-        System.out.println("Direccion");
-        Direccion= sc.nextLine();
-        System.out.println("FecgaInicio");
-        FechaInicio = sc.nextLine();
-        System.out.println("FechaFin");
-        FechaFin= sc.nextLine();
-        
+    public void regsitrarEmpleado(empleado emple) {
+           
         
         
         try {
-            if (ValidarCedula.ValidarCedula(CI)){
-        empleado emple = new empleado(CI, Nombre, Direccion, FechaInicio, FechaFin, 1);
+            if (ValidarCedula.ValidarCedula(emple.getCI_EMPLEADO())){
         empleadoDao empleDao = new empleadoImp();
         empleDao.save(emple);
             }else {

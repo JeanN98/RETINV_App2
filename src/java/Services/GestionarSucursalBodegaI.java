@@ -4,6 +4,7 @@
  */
 package Services;
 
+import com.sun.xml.rpc.processor.modeler.j2ee.xml.string;
 import model.bodega_sucursal;
 import model.usuario_cargo;
 
@@ -17,6 +18,6 @@ public interface GestionarSucursalBodegaI {
     public bodega_sucursal BuscarSucBod(usuario_cargo admin,String Ruc);
     public boolean ModSucBod(usuario_cargo admin,String Ruc);
     public boolean EliminarSucBod(usuario_cargo admin,String Ruc);
-    
+    public usuario_cargo BuscarGerente(String Cedula);
     
 }

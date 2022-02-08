@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Services;
+import com.sun.xml.rpc.processor.modeler.j2ee.xml.string;
 import dao.bodega_sucursalDao;
 import dao.bodega_sucursalImp;
 import java.util.List;
@@ -33,7 +34,7 @@ public class GestionarSucursalBodegaImp implements GestionarSucursalBodegaI {
         
         try {
             //VALIDAR REGLAS NEGOCIO
-            if (admin.getROl()==1) {
+            if (admin.getROl()==0) {
               
                 almacen = new bodega_sucursalImp ();
                 
@@ -59,7 +60,7 @@ public class GestionarSucursalBodegaImp implements GestionarSucursalBodegaI {
         
         try {
             //VALIDAR REGLAS NEGOCIO
-            if (admin.getROl()==1) {
+            if (admin.getROl()==0) {
               
                 almacen = new bodega_sucursalImp ();
                 
@@ -179,4 +180,14 @@ public class GestionarSucursalBodegaImp implements GestionarSucursalBodegaI {
         return aux;
                 
     }
+      
+       @Override
+         public usuario_cargo BuscarGerente(String Cedula){
+             
+             usuario_cargo usu = new usuario_cargo();
+            usuario_cargoService usuario = new   usuario_cargoServiceImp ();
+            
+            usu =  usuario.buscarrUsuarios(Cedula);
+         return usu;
+         }
 }

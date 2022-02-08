@@ -13,6 +13,22 @@
         <servlet-name>Controlador</servlet-name>
         <servlet-class>controlador.Controlador</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>gerenteController</servlet-name>
+        <servlet-class>controlador.gerenteController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>adminController</servlet-name>
+        <servlet-class>controlador.adminController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>empleadoController</servlet-name>
+        <servlet-class>controlador.empleadoController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>sucursalController</servlet-name>
+        <servlet-class>controlador.sucursalController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -20,6 +36,22 @@
     <servlet-mapping>
         <servlet-name>Controlador</servlet-name>
         <url-pattern>/Controlador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>gerenteController</servlet-name>
+        <url-pattern>/gerenteController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminController</servlet-name>
+        <url-pattern>/adminController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>empleadoController</servlet-name>
+        <url-pattern>/empleadoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sucursalController</servlet-name>
+        <url-pattern>/sucursalController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

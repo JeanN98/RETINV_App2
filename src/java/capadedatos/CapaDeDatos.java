@@ -18,6 +18,8 @@ import Services.empleadoService;
 import Services.empleadoServiceImp;
 import Services.gestionarArticulo;
 import Services.gestionarArticuloImp;
+import Services.usuario_cargoService;
+import Services.usuario_cargoServiceImp;
 import dao.bodega_sucursalDao;
 import dao.bodega_sucursalImp;
 import dao.empleadoDao;
@@ -125,14 +127,15 @@ public class CapaDeDatos {
         usuario_cargoDao usua= new usuariio_cargoImp();
         
        Inv.ArticulosSucursal(usu, 1);*/
-    validarUsuario validar = new validarUusarioImp  ();
-     
+      empleadoService empleService = new   empleadoServiceImp();
+       empleado empleado = new empleado ( "060225544","Juanito Alimania","Nose", "01-03-2004", "01-01-1999",1);
+        empleService.regsitrarEmpleado(empleado);
+    /* 
      if (validar.validarUsario("stalincopa2", "Admin")){
             System.out.println("El usuario exsite");
             } else{
          System.out.println("El usuario no existe");
-     }
-    
-         }
+     }*/
+    }
     /*Comnentario*/
 }

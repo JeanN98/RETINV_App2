@@ -5,39 +5,47 @@
  */
 package controlador;
 
-import Restricciones.validarUsuario;
-import Restricciones.validarUusarioImp;
+import Services.empleadoService;
+import Services.empleadoServiceImp;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.empleado;
 
 /**
  *
  * @author Stalin
  */
-public class Controlador extends HttpServlet {
-  
-    String home = "home.jsp";
-    validarUsuario validar = new validarUusarioImp  ();
+public class empleadoController extends HttpServlet {
+    
+       empleadoService empleService = new   empleadoServiceImp();
+       
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            response.setContentType("text/html;charset=UTF-8");
-            String action = request.getParameter("accion");
-            
-            if (action.equals("ingresar")){
-            
-                String nombre = request.getParameter("usuario");
-                String contracenia = request.getParameter("contracenia");
+        response.setContentType("text/html;charset=UTF-8");
+        String action = request.getParameter("accion");
+        
+      if (action.equals("ingresar")){
+                String CI_EMPLEADO = request.getParameter("CI_EMPLEADO");
+                String NOMBRE_EMPLEADO = request.getParameter("NOMBRE_EMPLEADO");
+                String APELLIDO_EMPLEADO = request.getParameter("APELLIDO_EMPLEADO");
+                String DIRECCION_EMPLEADO = request.getParameter("DIRECCION_EMPLEADO");
+                String FECHA_EMPLEADO = request.getParameter("FECHA_EMPLEADO");
+                int  ID_BODEGA = Integer.parseInt(request.getParameter("ID_BODEGA"));
+              
                 
-                if (validar.validarUsario(nombre, contracenia))
-                    request.getRequestDispatcher(home).forward(request, response);
-                else 
-                     request.getRequestDispatcher("index.jsp").forward(request, response);
-            }
-          
+                empleado empleado = new empleado ( CI_EMPLEADO, NOMBRE_EMPLEADO.concat(APELLIDO_EMPLEADO),DIRECCION_EMPLEADO , FECHA_EMPLEADO, "01-01-1999",ID_BODEGA);
+                try {
+                     empleService.regsitrarEmpleado(empleado);
+                      request.getRequestDispatcher("exito.jsp").forward(request, response);
+                }catch(Exception e ){
+                       request.getRequestDispatcher("fracaso.jsp").forward(request, response);    
+                }
+                
+      }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -52,7 +60,7 @@ public class Controlador extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-             processRequest(request, response);
+        processRequest(request, response);
     }
 
     /**

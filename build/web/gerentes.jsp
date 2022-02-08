@@ -11,6 +11,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>RETINVTL</title>
+       
 	<link rel="stylesheet" href="resources/css/normalize.css">
 	<link rel="stylesheet" href="resources/css/sweetalert2.css">
 	<link rel="stylesheet" href="resources/css/material.min.css">
@@ -226,7 +227,7 @@
 		<nav class="full-width">
 			<ul class="full-width list-unstyle menu-principal">
 				<li class="full-width">
-					<a href="home.html" class="full-width">
+					<a href="/home.jsp" class="full-width">
 						<div class="navLateral-body-cl">
 							<i class="zmdi zmdi-view-dashboard"></i>
 						</div>
@@ -248,7 +249,7 @@
 					</a>
 					<ul class="full-width menu-principal sub-menu-options">
 						<li class="full-width">
-							<a href="company.html" class="full-width">
+							<a href="/company.jsp" class="full-width">
 								<div class="navLateral-body-cl">
 									<i class="zmdi zmdi-balance"></i>
 								</div>
@@ -258,7 +259,7 @@
 							</a>
 						</li>
 						<li class="full-width">
-							<a href="categories.html" class="full-width">
+							<a href="/categorias.jsp" class="full-width">
 								<div class="navLateral-body-cl">
 									<i class="zmdi zmdi-label"></i>
 								</div>
@@ -282,7 +283,7 @@
 					</a>
 					<ul class="full-width menu-principal sub-menu-options">
 						<li class="full-width">
-							<a href="admin.html" class="full-width">
+							<a href="/admin.jsp" class="full-width">
 								<div class="navLateral-body-cl">
 									<i class="zmdi zmdi-account"></i>
 								</div>
@@ -292,7 +293,7 @@
 							</a>
 						</li>
 						<li class="full-width">
-							<a href="client.html" class="full-width">
+							<a href="gerentes.jsp" class="full-width">
 								<div class="navLateral-body-cl">
 									<i class="zmdi zmdi-accounts"></i>
 								</div>
@@ -302,7 +303,7 @@
 							</a>
 						</li>
 						<li class="full-width">
-							<a href="empleado.html" class="full-width">
+							<a href="empleado.jsp" class="full-width">
 								<div class="navLateral-body-cl">
 									<i class="zmdi zmdi-accounts"></i>
 								</div>
@@ -315,7 +316,7 @@
 				</li>
 				<li class="full-width divider-menu-h"></li>
 				<li class="full-width">
-					<a href="products.html" class="full-width">
+					<a href="/articulos.jsp" class="full-width">
 						<div class="navLateral-body-cl">
 							<i class="zmdi zmdi-washing-machine"></i>
 						</div>
@@ -326,7 +327,7 @@
 				</li>
 				<li class="full-width divider-menu-h"></li>
 				<li class="full-width">
-					<a href="sales.html" class="full-width">
+					<a href="/kardex.jsp" class="full-width">
 						<div class="navLateral-body-cl">
 							<i class="zmdi zmdi-widgets"></i>
 						</div>
@@ -337,7 +338,7 @@
 				</li>
 				<li class="full-width divider-menu-h"></li>
 				<li class="full-width">
-					<a href="inventory.html" class="full-width">
+					<a href="/inventario.jsp" class="full-width">
 						<div class="navLateral-body-cl">
 							<i class="zmdi zmdi-store"></i>
 						</div>
@@ -377,56 +378,54 @@
 							Nuevo Gerente
 						</div>
 						<div class="full-width panel-content">
-							<form>
+							<form action="gerenteController">
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 										<h5 class="text-condensedLight">Datos Gerente </h5>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="CIAdmin">
-											<label class="mdl-textfield__label" for="CIAdmin">CI</label>
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="CIGerente" name="CI_GERENTE">
+											<label class="mdl-textfield__label" for="CIGerente">CI</label>
 											<span class="mdl-textfield__error">CI inválido</span>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NombreAdmin">
-											<label class="mdl-textfield__label" for="NombreAdmin">Nombre</label>
+											<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NombreGerente" name="NOMBRE_GERENTE">
+											<label class="mdl-textfield__label" for="NombreGerente">Nombre</label>
 											<span class="mdl-textfield__error">Nombre inválido</span>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="LastNameAdmin">
-											<label class="mdl-textfield__label" for="LastNameAdmin">Apellido</label>
+											<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="ApellidoGerente" name="APELLIDO_GERENTE">
+											<label class="mdl-textfield__label" for="ApellidoGerente">Apellido</label>
 											<span class="mdl-textfield__error">Apellido inválido</span>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="phoneAdmin">
-											<label class="mdl-textfield__label" for="phoneAdmin">Teléfono</label>
+											<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="phoneGerente" name="PHONE_GERENTE">
+											<label class="mdl-textfield__label" for="phoneGerente">Teléfono</label>
 											<span class="mdl-textfield__error">Número de teléfono invalido</span>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="text" id="addressAdmin">
-											<label class="mdl-textfield__label" for="addressAdmin">Dirección</label>
+											<input class="mdl-textfield__input" type="text" id="addressGerente" name="DIRECCION_GERENTE">
+											<label class="mdl-textfield__label" for="addressGerente">Dirección</label>
 											<span class="mdl-textfield__error">Dirección inválida</span>
 										</div>
 									</div>
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 										<h5 class="text-condensedLight">Detalles de la Cuenta</h5>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ]*(\.[0-9]+)?" id="UserNameAdmin">
-											<label class="mdl-textfield__label" for="UserNameAdmin">Nombre de usuario</label>
+											<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ]*(\.[0-9]+)?" id="UserNameGerente" name="USUARIO_GERENTE">
+											<label class="mdl-textfield__label" for="UserNameGerente">Nombre de usuario</label>
 											<span class="mdl-textfield__error">Nombre de usuario no válido</span>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="password" id="passwordAdmin">
-											<label class="mdl-textfield__label" for="passwordAdmin">Contraseña</label>
+											<input class="mdl-textfield__input" type="password" id="passwordGerente" name="PASSWORD_GERENTE">
+											<label class="mdl-textfield__label" for="passwordGerente">Contraseña</label>
 											<span class="mdl-textfield__error">Contraseña invalida</span>
 										</div>
 									
 									</div>
 								</div>
 								<p class="text-center">
-									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addAdmin">
-										<i class="zmdi zmdi-plus"></i>
-									</button>
-									<div class="mdl-tooltip" for="btn-addAdmin">Agregar gerente</div>
+                                                                        
+                                                                        <input  class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit" value="ingresar" name="accion"> 
 								</p>
 							</form>
 						</div>

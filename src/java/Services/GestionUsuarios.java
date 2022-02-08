@@ -26,7 +26,7 @@ public class GestionUsuarios {
         
            
     }
-    
+    /*
     // gestion de los usuarios empleaados por parte del admin
     public void ADGestionEmpleadoCrear(NivelesAcceso nivel, usuario_cargo usuario){
     
@@ -37,7 +37,7 @@ public class GestionUsuarios {
                                     
         }
     
-    }
+    }*/
     
     public void ADGestionEmpleadoModificar(NivelesAcceso nivel, usuario_cargo usuario){
     
@@ -69,7 +69,7 @@ public class GestionUsuarios {
     // gestion de los empleados  por parte del gerente
     
     // gestion de los usuarios empleaados por parte del admin
-    public void GEGestionEmpleadoCrear(NivelesAcceso nivel, usuario_cargo usuario){
+  /*  public void GEGestionEmpleadoCrear(NivelesAcceso nivel, usuario_cargo usuario){
     
         if(nivel.ACSAdmin(usuario)==2){
         
@@ -79,7 +79,7 @@ public class GestionUsuarios {
         }
     
     }
-    
+    */
     public void GEGestionEmpleadoModificar(NivelesAcceso nivel, usuario_cargo usuario){
     
         if(nivel.ACSAdmin(usuario)==2){

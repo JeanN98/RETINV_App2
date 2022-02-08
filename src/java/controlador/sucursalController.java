@@ -5,39 +5,51 @@
  */
 package controlador;
 
-import Restricciones.validarUsuario;
-import Restricciones.validarUusarioImp;
+import Services.GestionarSucursalBodegaI;
+import Services.GestionarSucursalBodegaImp;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.bodega_sucursal;
+import model.usuario_cargo;
 
 /**
  *
  * @author Stalin
  */
-public class Controlador extends HttpServlet {
-  
-    String home = "home.jsp";
-    validarUsuario validar = new validarUusarioImp  ();
+public class sucursalController extends HttpServlet {
+
+   
+    GestionarSucursalBodegaI sucuService = new GestionarSucursalBodegaImp();
+    usuario_cargo encargado = new usuario_cargo();
+     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            response.setContentType("text/html;charset=UTF-8");
-            String action = request.getParameter("accion");
-            
-            if (action.equals("ingresar")){
-            
-                String nombre = request.getParameter("usuario");
-                String contracenia = request.getParameter("contracenia");
+        response.setContentType("text/html;charset=UTF-8");
+        String action = request.getParameter("accion");
+       encargado = sucuService.BuscarGerente(request.getParameter("CI_GERENTE_SUCURSAL"));
+       
+        if (action.equals("ingresar")){
                 
-                if (validar.validarUsario(nombre, contracenia))
-                    request.getRequestDispatcher(home).forward(request, response);
-                else 
-                     request.getRequestDispatcher("index.jsp").forward(request, response);
-            }
-          
+                String RUC_SUCURSAL = request.getParameter("RUC_SUCURSAL");
+                String NOMBRE_SUCURSAL = request.getParameter("NOMBRE_SUCURSAL");
+                String DIRECCION_SUCURSAL = request.getParameter("DIRECCION_SUCURSAL");
+                String TELEFONO_SUCURSAL = request.getParameter("TELEFONO_SUCURSAL");
+                int  ID_GERENTE = encargado.getID_USUARIO_CARGO();
+
+        bodega_sucursal sucursal = new bodega_sucursal ( RUC_SUCURSAL, NOMBRE_SUCURSAL ,DIRECCION_SUCURSAL ,TELEFONO_SUCURSAL , ID_GERENTE );
+         try{
+                 sucuService.CrearNuevaSucBod(sucursal, encargado);
+                 
+                 request.getRequestDispatcher("exito.jsp").forward(request, response);
+                }catch(Exception e ){
+                   request.getRequestDispatcher("fracaso.jsp").forward(request, response);   
+                }
+        
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -52,7 +64,7 @@ public class Controlador extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-             processRequest(request, response);
+        processRequest(request, response);
     }
 
     /**

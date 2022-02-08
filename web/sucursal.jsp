@@ -222,41 +222,38 @@
 						Nueva Sucursal
 					</div>
 					<div class="full-width panel-content">
-						<form>
+						<form action="sucursalController">
 							<h5 class="text-condensedLight">Datos de la Sucursal</h5>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="DNICompany">
+                                                            <input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="DNICompany" name="RUC_SUCURSAL">
 								<label class="mdl-textfield__label" for="DNICompany">RUC</label>
 								<span class="mdl-textfield__error">RUC invalido</span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameCompany">
+								<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameCompany"  name="NOMBRE_SUCURSAL">
 								<label class="mdl-textfield__label" for="NameCompany">Nombre</label>
 								<span class="mdl-textfield__error">Nombre inválido</span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" id="addressCompany">
+								<input class="mdl-textfield__input" type="text" id="addressCompany"  name="DIRECCION_SUCURSAL">
 								<label class="mdl-textfield__label" for="addressCompany">Dirección</label>
 								<span class="mdl-textfield__error">Dirección inválido</span>
 							</div>
 							
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="phoneCompany">
+								<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="phoneCompany"  name="TELEFONO_SUCURSAL">
 								<label class="mdl-textfield__label" for="phoneCompany">Teléfono</label>
 								<span class="mdl-textfield__error">Número de teléfono invalido</span>
 							</div>
 
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="faxCompany">
+								<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="faxCompany"  name="CI_GERENTE_SUCURSAL">
 								<label class="mdl-textfield__label" for="faxCompany">CI_GERENTE</label>
 								<span class="mdl-textfield__error">CI no válido</span>
 							</div>
 					
 							<p class="text-center">
-								<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addCompany">
-									<i class="zmdi zmdi-plus"></i>
-								</button>
-								<div class="mdl-tooltip" for="btn-addCompany">Añadir sucursal</div>
+								<input  class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit" value="ingresar" name="accion"> 
 							</p>
 						</form>
 					</div>

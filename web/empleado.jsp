@@ -226,43 +226,39 @@
 							Nuevo Empleado
 						</div>
 						<div class="full-width panel-content">
-							<form>
+							<form action="empleadoController">
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 										<h5 class="text-condensedLight">Datos Empleado </h5>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="DNIAdmin">
-											<label class="mdl-textfield__label" for="DNIAdmin">CI</label>
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="CIEmepleado" name="CI_EMPLEADO">
+											<label class="mdl-textfield__label" for="CIEmepleado">CI</label>
 											<span class="mdl-textfield__error">CI inválido</span>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameAdmin">
-											<label class="mdl-textfield__label" for="NameAdmin">Nombre</label>
+											<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameEmple" name="NOMBRE_EMPLEADO" >
+											<label class="mdl-textfield__label" for="NameEmple">Nombre</label>
 											<span class="mdl-textfield__error">Nombre inválido</span>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="LastNameAdmin">
+											<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="LastNameAdmin" name="APELLIDO_EMPLEADO">
 											<label class="mdl-textfield__label" for="LastNameAdmin">Apellido</label>
 											<span class="mdl-textfield__error">Apellido inválido</span>
 										</div>
-                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="text" id="addressAdmin">
-											<label class="mdl-textfield__label" for="addressAdmin">Dirección</label>
+                                                                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input class="mdl-textfield__input" type="text" id="addressAdmin" name="DIRECCION_EMPLEADO">
+											<label class="mdl-textfield__label" for="addressAdmin">Dirección</label >
 											<span class="mdl-textfield__error">Dirección inválida</span>
 										</div>
-                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="text" id="addressAdmin">
+                                                                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input class="mdl-textfield__input" type="text" id="addressAdmin" name="FECHA_EMPLEADO">
 											<label class="mdl-textfield__label" for="addressAdmin">Fecha de Ingreso</label>
 											<span class="mdl-textfield__error">Fecha Invalida inválida</span>
 										</div>
-                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="text" id="addressAdmin">
-											<label class="mdl-textfield__label" for="addressAdmin">Fecha Salida</label>
-											<span class="mdl-textfield__error">Fecha Invalida</span>
-										</div>
+                                               
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="phoneAdmin">
-											<label class="mdl-textfield__label" for="phoneAdmin">ID de la bodega</label>
+											<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="idBodega" name="ID_BODEGA">
+											<label class="mdl-textfield__label" for="idBodega">ID de la bodega</label>
 											<span class="mdl-textfield__error">Id invalido</span>
 										</div>
 									
@@ -270,10 +266,7 @@
 			
 								</div>
 								<p class="text-center">
-									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addAdmin">
-										<i class="zmdi zmdi-plus"></i>
-									</button>
-									<div class="mdl-tooltip" for="btn-addAdmin">Agregar empleado</div>
+									 <input  class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit" value="ingresar" name="accion"> 
 								</p>
 							</form>
 						</div>

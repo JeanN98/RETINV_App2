@@ -13,7 +13,7 @@ import model.empleado;
  */
 public interface empleadoService {
     
-    public void regsitrarEmpleado();
+    public void regsitrarEmpleado(empleado emple);
     public void eliminarEmpelado();
     public void listarEmpleados();
     public void modificarEmpleados();

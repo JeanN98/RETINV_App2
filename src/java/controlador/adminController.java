@@ -5,39 +5,47 @@
  */
 package controlador;
 
-import Restricciones.validarUsuario;
-import Restricciones.validarUusarioImp;
+import Services.usuario_cargoService;
+import Services.usuario_cargoServiceImp;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.usuario_cargo;
 
 /**
  *
  * @author Stalin
  */
-public class Controlador extends HttpServlet {
-  
-    String home = "home.jsp";
-    validarUsuario validar = new validarUusarioImp  ();
+public class adminController extends HttpServlet {
+
+    String gerente = "admin.jsp";
+    usuario_cargoService usuService = new  usuario_cargoServiceImp();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            response.setContentType("text/html;charset=UTF-8");
-            String action = request.getParameter("accion");
+        response.setContentType("text/html;charset=UTF-8");
+         String action = request.getParameter("accion");
+         
+        if (action.equals("ingresar")){
             
-            if (action.equals("ingresar")){
-            
-                String nombre = request.getParameter("usuario");
-                String contracenia = request.getParameter("contracenia");
+                String CI_ADMIN = request.getParameter("CI_ADMIN");
+                String NOMBRE_ADMIN = request.getParameter("NOMBRE_ADMIN");
+                String APELLIDO_ADMIN = request.getParameter("APELLIDO_ADMIN");
+                String PHONE_ADMIN = request.getParameter("PHONE_ADMIN");
+                String DIRECCION_ADMIN = request.getParameter("DIRECCION_ADMIN");
+                String USUARIO_ADMIN= request.getParameter("USUARIO_ADMIN");
+                String PASSWORD_ADMIN = request.getParameter("PASSWORD_ADMIN");
                 
-                if (validar.validarUsario(nombre, contracenia))
-                    request.getRequestDispatcher(home).forward(request, response);
-                else 
-                     request.getRequestDispatcher("index.jsp").forward(request, response);
+                usuario_cargo usuario =  new  usuario_cargo (CI_ADMIN, 0, NOMBRE_ADMIN.concat(APELLIDO_ADMIN), PHONE_ADMIN, DIRECCION_ADMIN, USUARIO_ADMIN, PASSWORD_ADMIN);
+                try{
+                 usuService.regsitrarUsuarios(usuario);
+                 request.getRequestDispatcher("exito.jsp").forward(request, response);
+                }catch(Exception e ){
+                   request.getRequestDispatcher("fracaso.jsp").forward(request, response);   
+                }
             }
-          
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -52,7 +60,7 @@ public class Controlador extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-             processRequest(request, response);
+        processRequest(request, response);
     }
 
     /**
