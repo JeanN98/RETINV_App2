@@ -41,13 +41,11 @@ public class gestionarArticuloImp implements gestionarArticulo {
     }
 
     @Override
-    public void listarArticulo() {
-       articulo art = new articulo  ();
+    public List<articulo> listarArticulo() {
+      
         articuloDao artDao = new articuloImp();
-        for (int i=0; i< (artDao.list()).size(); i++){
-           articulo e = (artDao.list()).get(i);
-          
-        }
+         List<articulo> art = artDao.list();
+         return art;
     }
      
     
@@ -67,9 +65,9 @@ public class gestionarArticuloImp implements gestionarArticulo {
     }
 
     @Override
-    public articulo buscarArticulo(int Id_Articulo ) {
+    public articulo buscarArticulo(String Nombre ) {
          
-        System.out.println("tetwrwe");     
+       
         articulo art = new articulo ();
           articuloDao artDao  = new articuloImp();
        
@@ -84,11 +82,8 @@ public class gestionarArticuloImp implements gestionarArticulo {
                 for(int i=0; i< listaArticulo.size();i++)
                 {
                 
-                    if (listaArticulo.get(i).getID_ARTICULO()==Id_Articulo){
+                    if (listaArticulo.get(i).getNOMBRE().equals(Nombre)){
                          art = listaArticulo.get(i);
-                        System.out.println("El articulo se ha encontrado con exito");
-               
-                        
                     }
                     else{
                          throw new Exception("no se encontro un articulo con ese ID ");                        

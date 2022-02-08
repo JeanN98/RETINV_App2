@@ -5,6 +5,7 @@
  */
 package Services;
 
+import java.util.List;
 import model.categoriaArticulo;
 
 /**
@@ -14,7 +15,7 @@ import model.categoriaArticulo;
 public interface gestionarCategoria {
     public void regsitrarCategoria( categoriaArticulo categoria);
     public void eliminarCategoria();
-    public void listarCategoria();
+    public List< categoriaArticulo> listarCategoria();
     public void modificarCategoria();
     public void buscarCategoria();
 }

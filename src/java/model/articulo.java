@@ -24,7 +24,7 @@ public class articulo {
     private String UNIDAD_MEDIDA;
 
     public articulo( int ID_CATEGORIA, int ID_BODEGA, String CODIGO_BARRA, String NOMBRE, float PRECIO_TOTAL, String FECHA_CADUCIDAD, float STOCK, String DESCRIPCION, float PRECIO_UNITARIO, String ESTADO, String UNIDAD_MEDIDA) {
-       
+       this.ID_ARTICULO=0;
         this.ID_CATEGORIA = ID_CATEGORIA;
         this.ID_BODEGA = ID_BODEGA;
         this.CODIGO_BARRA = CODIGO_BARRA;

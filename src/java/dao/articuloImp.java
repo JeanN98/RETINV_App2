@@ -93,13 +93,13 @@ public class articuloImp implements articuloDao {
                 sql.append(", ").append(articulo.getID_BODEGA());      //crear la cadena de conexion
                 sql.append(", '").append(articulo.getCODIGO_BARRA());
                 sql.append("' , '").append(articulo.getNOMBRE());
-                sql.append(",").append(articulo.getSTOCK());
+                sql.append("',").append(articulo.getSTOCK());
                 sql.append(",").append(articulo.getPRECIO_UNITARIO());
                 sql.append(", ").append(articulo.getPRECIO_TOTAL());
                 sql.append(", '").append(articulo.getFECHA_CADUCIDAD());
-                sql.append("', '").append(articulo.getDESCRIPCION());
-                sql.append("','").append(articulo.getESTADO());
-                sql.append("', '").append(articulo.getUNIDAD_MEDIDA()).append("')"); //crear la cadena de conexion
+                sql.append(" ', '").append(articulo.getDESCRIPCION());
+                sql.append("' , '").append(articulo.getESTADO());
+                sql.append("' , '").append(articulo.getUNIDAD_MEDIDA()).append("')"); //crear la cadena de conexion
                 this.conn.execute(sql.toString());      //ejecuta la query
             } else {   //es un registro previamente existente: estamos actualizando
                 StringBuilder sql = new StringBuilder();   //para crear la sentencia sql
@@ -171,7 +171,7 @@ public class articuloImp implements articuloDao {
                 articulo.setCODIGO_BARRA(rs.getString("CODIGO_BARRA"));
                 articulo.setNOMBRE(rs.getString("NOMBRE"));
                 articulo.setSTOCK(rs.getFloat("STOCK"));
-                articulo.setPRECIO_UNITARIO(rs.getInt("PRECIO_UNITARIO"));
+                articulo.setPRECIO_UNITARIO(rs.getFloat("PRECIO_UNITARIO"));
                 articulo.setPRECIO_UNITARIO(rs.getFloat("PRECIO_TOTAL"));
                 articulo.setFECHA_CADUCIDAD(rs.getString("FECHA_CADUCIDAD"));
                 articulo.setDESCRIPCION(rs.getString("DESCRIPCION"));

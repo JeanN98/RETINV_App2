@@ -7,48 +7,58 @@ package controlador;
 
 import Services.gestionarArticulo;
 import Services.gestionarArticuloImp;
+import Services.gestionarKardex;
+import Services.gestionarKardexImp;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.articulo;
+import model.kardex;
 
 /**
  *
  * @author Stalin
  */
-public class articuloController extends HttpServlet {
+public class kardexController extends HttpServlet {
 
-     gestionarArticulo art =new gestionarArticuloImp(); 
-     
+  gestionarKardex karService = new  gestionarKardexImp();
+ 
+  gestionarArticulo art = new gestionarArticuloImp();
+   
+  DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+   Date dateToStr = new Date(System.currentTimeMillis());
+   String fecha_actual = dateFormat.format(dateToStr );
+  
+  
+  
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String action = request.getParameter("accion");
         
        if (action.equals("ingresar")){
-            
-                String cod_barras = request.getParameter("cod_barras");
-                String nombre = request.getParameter("nombre_prod");
-                String descripcion = request.getParameter("descrip_prod");                
-                int categoria= Integer.parseInt(request.getParameter("categoria"));                
-                int id_bodega= Integer.parseInt(request.getParameter("id_bodega"));
-                String fecha_cad = request.getParameter("fecha_cad");
-                float unidades = Float.parseFloat(request.getParameter("unidades"));
-                float precio = Float.parseFloat(request.getParameter("precio"));   
-                String unidaMedida  = request.getParameter("Unidad_medida"); 
-                float total = precio*unidades;
-
-                articulo articu =  new   articulo ( categoria, id_bodega, cod_barras,nombre, total, fecha_cad,  unidades, descripcion,  precio , " ", unidaMedida);
-                try{
-                 art.regsitrarArticulo(articu);
-                 request.getRequestDispatcher("exito.jsp").forward(request, response);
-                }catch(Exception e ){
-                   request.getRequestDispatcher("fracaso.jsp").forward(request, response);   
-                }
-            }
+        String NOMBRE_ARTICULO = request.getParameter("NOMBRE_ARTICULO");
+        String DESCRIPCION_ARTICULO =request.getParameter("DESCRIPCION_ARTICULO"); 
+        int   CANTIDAD_ARTICULO = Integer.parseInt(request.getParameter("CANTIDAD_ARTICULO"));
+        String TIPO_KARDEX = request.getParameter("TIPO_KARDEX"); 
+        
+        articulo arti  = art.buscarArticulo(NOMBRE_ARTICULO);
+        
+         kardex kardexa = new kardex (1,1,fecha_actual, DESCRIPCION_ARTICULO,  CANTIDAD_ARTICULO,  arti.getPRECIO_UNITARIO()*CANTIDAD_ARTICULO , TIPO_KARDEX,arti.getPRECIO_UNITARIO()*CANTIDAD_ARTICULO  );  
+        try {
+        
+         karService.regsitrarKardex(kardexa);
+         request.getRequestDispatcher("exito.jsp").forward(request, response);
+        }catch(Exception e ){
+         request.getRequestDispatcher("fracaso.jsp").forward(request, response);
+        }
+       }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

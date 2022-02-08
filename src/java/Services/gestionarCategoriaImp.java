@@ -48,16 +48,13 @@ public class gestionarCategoriaImp implements gestionarCategoria{
     }
 
     @Override
-    public void listarCategoria() {
+    public List< categoriaArticulo>  listarCategoria() {
      
-        categoriaArticuloDao cateDao = new categoriaArticuloImp();
-        for (int i=0; i< (cateDao .list()).size(); i++){
-            categoriaArticulo e = (cateDao.list()).get(i);
-            
-            System.out.println(e.getID_CATEGORIA() + " " + e.getNOMBRE_CATEGORIA() + " " + e.getDESCRIPCION_CATEGORIA() );
-        }
-    }
-
+        categoriaArticuloDao catDao = new categoriaArticuloImp();  
+        List<categoriaArticulo> cat = catDao.list();
+        
+        return cat;
+                }
     @Override
     public void modificarCategoria() {
    

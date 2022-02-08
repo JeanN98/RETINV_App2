@@ -133,6 +133,11 @@ public class CapaDeDatos {
             } else{
          System.out.println("El usuario no existe");
      }*/
+     gestionarArticulo art = new   gestionarArticuloImp ();
+     articulo arti = new articulo();
+     arti = art.buscarArticulo("Articulo 1");
+     
+        System.out.println(arti.getID_ARTICULO());
     }
     /*Comnentario*/
 }

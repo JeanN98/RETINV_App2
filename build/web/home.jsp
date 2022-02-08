@@ -4,6 +4,13 @@
     Author     : Stalin
 --%>
 
+<%@page import="model.articulo"%>
+<%@page import="Services.gestionarArticuloImp"%>
+<%@page import="Services.gestionarArticulo"%>
+<%@page import="model.categoriaArticulo"%>
+<%@page import="Services.gestionarCategoriaImp"%>
+<%@page import="Services.gestionarCategoria"%>
+<%@page import="Services.gestionarCategoria"%>
 <%@page import="Services.empleadoServiceImp"%>
 <%@page import="Services.empleadoService"%>
 <%@page import="model.empleado"%>
@@ -237,7 +244,7 @@
                                                          out.println( cant_administradores);
                                                  %>
                                                 <br>
-                                                <a href="admin.jsp">  <small>Administradores</small> </a>
+                                                <a class="Home_button" href="admin.jsp">  <small>Administradores</small> </a>
 					</span>
 				</div>
 				<i class="zmdi zmdi-account tile-icon"></i>
@@ -247,7 +254,7 @@
 					<span class="text-condensedLight">
                                             
 						<%out.println( cant_gerentes);%><br>
-                                                <a href="gerentes.jsp"><small>Gerentes</small></a>
+                                                <a class="Home_button" href="gerentes.jsp"><small>Gerentes</small></a>
 					</span>
 				</div>
 				<i class="zmdi zmdi-accounts tile-icon"></i>
@@ -264,7 +271,7 @@
                                                      
                                                 out.println(empleados.size()); %>
                                                 <br>
-                                                <a href="empleado.jsp"><small>Empleados</small></a>
+                                                <a class="Home_button" href="empleado.jsp"><small>Empleados</small></a>
 					</span>
 				</div>
 				<i class="zmdi zmdi-accounts tile-icon"></i>
@@ -272,8 +279,15 @@
 			<article class="full-width tile">
 				<div class="tile-text">
 					<span class="text-condensedLight">
-						9<br>
-						<small>Categorías</small>
+						<% 
+
+                                                     gestionarCategoria cate = new gestionarCategoriaImp();
+                                                  
+                                                     List<categoriaArticulo> ListCat = cate.listarCategoria();
+                                                                                      
+                                                     
+                                                out.println(ListCat.size()); %><br>
+                                                <a class="Home_button" href="categorias.jsp"><small>Categorías</small></a>
 					</span>
 				</div>
 				<i class="zmdi zmdi-label tile-icon"></i>
@@ -281,8 +295,16 @@
 			<article class="full-width tile">
 				<div class="tile-text">
 					<span class="text-condensedLight">
-						121<br>
-						<small>Productos</small>
+					<% 
+
+                                                    gestionarArticulo  art = new  gestionarArticuloImp();
+                                                  
+                                                    List<articulo> ListArt = art.listarArticulo();
+
+                                                    out.println(ListArt.size()); %>	
+                                            
+                                            <br>
+                                            <a class="Home_button" href="articulos.jsp"> <small>Productos</small> </a>
 					</span>
 				</div>
 				<i class="zmdi zmdi-washing-machine tile-icon"></i>

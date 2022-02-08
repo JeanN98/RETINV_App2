@@ -5,12 +5,14 @@
  */
 package Services;
 
+import model.kardex;
+
 /**
  *
  * @author Stalin
  */
 public interface gestionarKardex {
-    public void regsitrarKardex(int ID_EMPLEADO, int ID_ARTICULO, String FECHA_REGISTRO, String DESCRIPCION, float CANTIDAD , float PRECIO_TOTAL, String TIPO, float SALDO);
+    public void regsitrarKardex(kardex kar);
     public void eliminarKardex();
     public void listarKardex();
     public void modificarKardex();

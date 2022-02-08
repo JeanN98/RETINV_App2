@@ -229,35 +229,35 @@
 							NUEVO KARDEX
 						</div>
 						<div class="full-width panel-content">
-							<form>
+                                                    <form action="kardexController">
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 										<h5 class="text-condensedLight">Datos a ingresar</h5>
 
 										<div class="mdl-textfield mdl-js-textfield">
-											<select class="mdl-textfield__input">
+											<select class="mdl-textfield__input" name="NOMBRE_ARTICULO">
 												<option value="" disabled="" selected="">Selecciona una articulo</option>
-												<option value="">Categoría 1</option>
-												<option value="">Categoría 2</option>
+												<option value="Articulo 1">Articulo 1</option>
+												<option value="Articulo 2">Articulo 2</option>
 											</select>
 										</div>
 										
 
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="BarCode">
-											<label class="mdl-textfield__label" for="BarCode">Descripcion</label>
+											<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="Descripcion" name ="DESCRIPCION_ARTICULO">
+											<label class="mdl-textfield__label" for="Descripcion">Descripcion</label>
 											<span class="mdl-textfield__error">Descripcion Invalida</span>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameProduct">
-											<label class="mdl-textfield__label" for="NameProduct">Cantidad</label>
+											<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="CantProduct" name="CANTIDAD_ARTICULO">
+											<label class="mdl-textfield__label" for="cantProduct" >Cantidad</label>
 											<span class="mdl-textfield__error">Ingrese solo numeros</span>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield">
-											<select class="mdl-textfield__input">
+											<select class="mdl-textfield__input" name ="TIPO_KARDEX">
 												<option value="" disabled="" selected="">Selecciona un tipo </option>
-												<option value="">Tipo 1</option>
-												<option value="">Tipo 2</option>
+												<option value="ENTRADA">ENTRADA</option>
+												<option value="SALIDA">SALIDA</option>
 											</select>
 										</div>
 										
@@ -276,10 +276,7 @@
 									</div>
 								</div>
 								<p class="text-center">
-									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addProduct">
-										<i class="zmdi zmdi-plus"></i>
-									</button>
-									<div class="mdl-tooltip" for="btn-addProduct">Agregar Kardex</div>
+									<input  class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit" value="ingresar" name="accion"> 
 								</p>
 							</form>
 					

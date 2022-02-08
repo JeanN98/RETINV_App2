@@ -250,8 +250,8 @@
 											<div class="mdl-textfield mdl-js-textfield">
 												<select class="mdl-textfield__input" name="categoria">
 													<option value="" disabled="" selected="">Selecciona una categoría</option>
-													<option value="">1</option>
-													<option value="">2</option>
+													<option value="1">1</option>
+													<option value="2">2</option>
 												</select>
 											</div>
 											
@@ -259,8 +259,8 @@
 										</div>
 										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" id="NameProduct" name="id_bodega">
-												<label class="mdl-textfield__label" for="NameProduct">ID bodega</label>
+												<input class="mdl-textfield__input" type="text" id="id_bodega" name="id_bodega">
+												<label class="mdl-textfield__label" for="id_bodega">ID bodega</label>
 												<span class="mdl-textfield__error">ID invalido</span>
 											</div>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -280,18 +280,23 @@
 												<label class="mdl-textfield__label" for="PriceProduct">Precio</label>
 												<span class="mdl-textfield__error">Precio inválido</span>
 											</div>	
+                                                                                        
+                                                                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                                                                <label for="uMedida">Elige o ingresa una unidad de medida</label>
+												<select class="mdl-textfield__input" id="uMedida" name="Unidad_medida" >
+													<option value="" disabled="" selected>Unidad de Medida</option>
+													<option value="kg">kg</option>
+													<option value="lb">Lb</option>
+												</select>
+											</div>	
 
 										
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
 												
-												<label class="mdl-textfield__label" for="PriceProduct">Total</label>
+												<label class="mdl-textfield__label" >Total</label>
 	
 											</div>	
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												
-												<label class="mdl-textfield__label" for="PriceProduct">Estado</label>
-	
-											</div>	
+					
 										</div>
 									</div>
 									<p class="text-center">

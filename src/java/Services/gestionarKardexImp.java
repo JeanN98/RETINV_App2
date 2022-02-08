@@ -32,18 +32,14 @@ public class gestionarKardexImp implements gestionarKardex{
 
 
     @Override
-    public void regsitrarKardex(int ID_EMPLEADO, int ID_ARTICULO,String FECHA_REGISTRO, String DESCRIPCION, float CANTIDAD , float PRECIO_TOTAL, String TIPO, float SALDO) {
+    public void regsitrarKardex(kardex kar) {
        
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        Date dateToStr = new Date(System.currentTimeMillis());
-        String fecha_actual = dateFormat.format(dateToStr );
-        
+     
         try {
-            
-            
-       kardex kardex = new kardex (ID_EMPLEADO,ID_ARTICULO,fecha_actual, DESCRIPCION,  CANTIDAD,  PRECIO_TOTAL, TIPO,  SALDO);
        kardexDao kardexDao = new  kardexImp();
-        kardexDao.save(kardex);
+        kardexDao.save(kar);
+        
+        
         }catch (Exception e){
             e.getMessage();
         }

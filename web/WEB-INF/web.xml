@@ -37,6 +37,10 @@
         <servlet-name>articuloController</servlet-name>
         <servlet-class>controlador.articuloController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>kardexController</servlet-name>
+        <servlet-class>controlador.kardexController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -68,6 +72,10 @@
     <servlet-mapping>
         <servlet-name>articuloController</servlet-name>
         <url-pattern>/articuloController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>kardexController</servlet-name>
+        <url-pattern>/kardexController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
