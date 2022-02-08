@@ -4,7 +4,13 @@
     Author     : Stalin
 --%>
 
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" %>
+<%@ page import = "Services.empleadoService"%> 
+<%@ page import = "Services.empleadoServiceImp"%> 
+<%@ page import = "model.empleado"%> 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -275,6 +281,9 @@
 			</div>
 		</div>
 		<div class="mdl-tabs__panel" id="tabListAdmin">
+                    
+                    <% empleadoService empleado = new empleadoServiceImp();%>
+                    
 			<div class="mdl-grid">
 				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
 					<div class="full-width panel mdl-shadow--2dp">
@@ -282,7 +291,7 @@
 							Lista de empleados
 						</div>
 						<div class="full-width panel-content">
-							<form action="#">
+							<!--<form action="#">
 								<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
 									<label class="mdl-button mdl-js-button mdl-button--icon" for="searchAdmin">
 										<i class="zmdi zmdi-search"></i>
@@ -292,53 +301,42 @@
 										<label class="mdl-textfield__label"></label>
 									</div>
 								</div>
-							</form>
-							<div class="mdl-list">
-								<div class="mdl-list__item mdl-list__item--two-line">
-									<span class="mdl-list__item-primary-content">
-										<i class="zmdi zmdi-account mdl-list__item-avatar"></i>
-										<span>1. Nombre del empleado</span>
-										<span class="mdl-list__item-sub-title">CI</span>
-									</span>
-									<a class="mdl-list__item-secondary-action" href="#!"><i class="zmdi zmdi-more"></i></a>
-								</div>
-								<li class="full-width divider-menu-h"></li>
-								<div class="mdl-list__item mdl-list__item--two-line">
-									<span class="mdl-list__item-primary-content">
-										<i class="zmdi zmdi-account mdl-list__item-avatar"></i>
-										<span>2. Nombre del empleado</span>
-										<span class="mdl-list__item-sub-title">CI</span>
-									</span>
-									<a class="mdl-list__item-secondary-action" href="#!"><i class="zmdi zmdi-more"></i></a>
-								</div>
-								<li class="full-width divider-menu-h"></li>
-								<div class="mdl-list__item mdl-list__item--two-line">
-									<span class="mdl-list__item-primary-content">
-										<i class="zmdi zmdi-account mdl-list__item-avatar"></i>
-										<span>3.Nombre del empleado</span>
-										<span class="mdl-list__item-sub-title">CI</span>
-									</span>
-									<a class="mdl-list__item-secondary-action" href="#!"><i class="zmdi zmdi-more"></i></a>
-								</div>
-								<li class="full-width divider-menu-h"></li>
-								<div class="mdl-list__item mdl-list__item--two-line">
-									<span class="mdl-list__item-primary-content">
-										<i class="zmdi zmdi-account mdl-list__item-avatar"></i>
-										<span>4. Nombre del empleado</span>
-										<span class="mdl-list__item-sub-title">CI</span>
-									</span>
-									<a class="mdl-list__item-secondary-action" href="#!"><i class="zmdi zmdi-more"></i></a>
-								</div>
-								<li class="full-width divider-menu-h"></li>
-								<div class="mdl-list__item mdl-list__item--two-line">
-									<span class="mdl-list__item-primary-content">
-										<i class="zmdi zmdi-account mdl-list__item-avatar"></i>
-										<span>5.Nombre del Gerente</span>
-										<span class="mdl-list__item-sub-title">CI</span>
-									</span>
-									<a class="mdl-list__item-secondary-action" href="#!"><i class="zmdi zmdi-more"></i></a>
-								</div>
-							</div>
+							</form>-->
+                                                        
+
+                                                      
+							<div class="mdl-grid">
+                                                        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+                                                            <thead>
+                                                            <tr>
+                                                            <th class="mdl-data-table__cell--non-numeric">ID_EMPLEADO</th>
+                                                            <th>CI Empleado</th>
+                                                            <th>Nombre empleado</th>
+                                                            <th>Direccion</th>
+                                                            <th>Fecha</th>
+                                                            <th>Bodega</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <% 
+                                                             List<empleado> empleados = empleado.listarEmpleados();
+                                                             for (int i =0; i<empleados.size();i++){
+                                                                
+                                                                out.println( "<tr>"  +  "<td class= \"mdl-data-table__cell--non-numeric\">" + 05/2/2011 +"</td>"+
+                                                                 
+                                                                  "<td>"+ empleados.get(i).getCI_EMPLEADO() +"</td>"+
+                                                                 "<td>"+ empleados.get(i).getNOMBRE()+ "</td>" +
+                                                               "<td>"+ empleados.get(i).getDIRECCION() + "</td>" +
+                                                                "<td>" + empleados.get(i).getFECHA_INICIO()+ "</td>"+
+                                                                "<td>" +empleados.get(i).getID_BODEGA() +"</td>"
+                                                                  );  
+                                                                }
+                                                              %>  
+                                                            </tbody>
+                                                        </table>
+			
+                                                        </div>
+                                                        
 						</div>
 					</div>
 				</div>

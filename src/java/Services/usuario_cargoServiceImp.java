@@ -35,8 +35,12 @@ public class usuario_cargoServiceImp implements  usuario_cargoService{
     }
 
     @Override
-    public void listarrUsuarios() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<usuario_cargo> listarrUsuarios() {
+       
+        usuario_cargoDao usuDao = new usuariio_cargoImp();
+        List<usuario_cargo> usuarioList = usuDao.list();
+        
+        return usuarioList;
     }
 
     @Override

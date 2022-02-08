@@ -52,14 +52,13 @@ public class empleadoServiceImp implements empleadoService {
     }
 
     @Override
-    public void listarEmpleados() {
-        empleado emple = new empleado ();
+    public List<empleado> listarEmpleados() {
+        
         empleadoDao empleDao = new empleadoImp();
-        for (int i=0; i< (empleDao.list()).size(); i++){
-            empleado e = (empleDao.list()).get(i);
-            System.out.println(e.getID_EMPLEADO()+" "+ e.getCI_EMPLEADO() + " "+  e.getNOMBRE() + " "+ e.getDIRECCION() + " "+  e.getFECHA_INICIO()+ " "+ e.getFECHA_FINAL());
-        }
+        List<empleado> emple = empleDao.list();
+        return emple;
     }
+    
     
     @Override
     public void modificarEmpleados() {

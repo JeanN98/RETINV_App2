@@ -5,43 +5,43 @@
  */
 package controlador;
 
-import Services.usuario_cargoService;
-import Services.usuario_cargoServiceImp;
+import Services.gestionarArticulo;
+import Services.gestionarArticuloImp;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.usuario_cargo;
+import model.articulo;
 
 /**
  *
  * @author Stalin
  */
-public class adminController extends HttpServlet {
+public class articuloController extends HttpServlet {
 
-    String gerente = "admin.jsp";
-    usuario_cargoService usuService = new  usuario_cargoServiceImp();
-    
+     gestionarArticulo art =new gestionarArticuloImp(); 
+     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         String action = request.getParameter("accion");
-         
-        if (action.equals("ingresar")){
+        String action = request.getParameter("accion");
+        
+       if (action.equals("ingresar")){
             
-                String CI_ADMIN = request.getParameter("CI_ADMIN");
-                String NOMBRE_ADMIN = request.getParameter("NOMBRE_ADMIN");
-                String APELLIDO_ADMIN = request.getParameter("APELLIDO_ADMIN");
-                String PHONE_ADMIN = request.getParameter("PHONE_ADMIN");
-                String DIRECCION_ADMIN = request.getParameter("DIRECCION_ADMIN");
-                String USUARIO_ADMIN= request.getParameter("USUARIO_ADMIN");
-                String PASSWORD_ADMIN = request.getParameter("PASSWORD_ADMIN");
-                
-                usuario_cargo usuario =  new  usuario_cargo (CI_ADMIN, 0, NOMBRE_ADMIN.concat(APELLIDO_ADMIN), PHONE_ADMIN, DIRECCION_ADMIN, USUARIO_ADMIN, PASSWORD_ADMIN);
+               String cod_barras = request.getParameter("cod_barras");
+                String nombre = request.getParameter("nombre_prod");
+                String descripcion = request.getParameter("descrip_prod");                
+                int categoria= Integer.parseInt(request.getParameter("categoria"));                
+                int id_bodega= Integer.parseInt(request.getParameter("id_bodega"));
+                String fecha_cad = request.getParameter("fecha_cad");
+                float unidades = Float.parseFloat(request.getParameter("unidades"));
+                float precio = Float.parseFloat(request.getParameter("precio"));   
+
+                articulo articulo =  new   articulo ( categoria, id_bodega, cod_barras,nombre, precio*unidades, fecha_cad,  unidades, descripcion,  precio , "Bueno",  "Kilos");
                 try{
-                 usuService.regsitrarUsuarios(usuario);
+                 art.regsitrarArticulo(articulo);
                  request.getRequestDispatcher("exito.jsp").forward(request, response);
                 }catch(Exception e ){
                    request.getRequestDispatcher("fracaso.jsp").forward(request, response);   

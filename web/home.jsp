@@ -4,6 +4,13 @@
     Author     : Stalin
 --%>
 
+<%@page import="Services.empleadoServiceImp"%>
+<%@page import="Services.empleadoService"%>
+<%@page import="model.empleado"%>
+<%@page import="java.util.List"%>
+<%@page import="Services.usuario_cargoServiceImp"%>
+<%@page import="model.usuario_cargo"%>
+<%@page import="Services.usuario_cargoService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -210,8 +217,27 @@
 			<article class="full-width tile">
 				<div class="tile-text">
 					<span class="text-condensedLight">
-						2<br>
-						<small>Administradores</small>
+						 <% 
+                                                     int cant_administradores=0;  
+                                                     int cant_gerentes=0;
+                                                     usuario_cargoService  usuService = new usuario_cargoServiceImp();
+                                                             List<usuario_cargo> usuarioList =  usuService.listarrUsuarios();
+                                                             
+                                                                for (int i=0; i<usuarioList.size();i++){
+                                                                    if (usuarioList.get(i).getROl()==0){
+                                                                       cant_administradores++;
+                                                                    }
+                                                                       else {
+                                                                            cant_gerentes++;   
+                                                                            }
+                                                                  
+                                                                    }
+                                                                
+                                                                    
+                                                         out.println( cant_administradores);
+                                                 %>
+                                                <br>
+                                                <a href="admin.jsp">  <small>Administradores</small> </a>
 					</span>
 				</div>
 				<i class="zmdi zmdi-account tile-icon"></i>
@@ -219,8 +245,9 @@
 			<article class="full-width tile">
 				<div class="tile-text">
 					<span class="text-condensedLight">
-						71<br>
-						<small>Gerentes</small>
+                                            
+						<%out.println( cant_gerentes);%><br>
+                                                <a href="gerentes.jsp"><small>Gerentes</small></a>
 					</span>
 				</div>
 				<i class="zmdi zmdi-accounts tile-icon"></i>
@@ -228,8 +255,16 @@
 			<article class="full-width tile">
 				<div class="tile-text">
 					<span class="text-condensedLight">
-						7<br>
-						<small>Empleados</small>
+						 <% 
+
+                                                     empleadoService emple = new empleadoServiceImp();
+                                                  
+                                                     List<empleado> empleados = emple.listarEmpleados();
+                                                                                      
+                                                     
+                                                out.println(empleados.size()); %>
+                                                <br>
+                                                <a href="empleado.jsp"><small>Empleados</small></a>
 					</span>
 				</div>
 				<i class="zmdi zmdi-accounts tile-icon"></i>

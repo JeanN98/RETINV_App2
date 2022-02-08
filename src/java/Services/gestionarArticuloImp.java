@@ -16,27 +16,12 @@ import model.articulo;
  * @author Stalin
  */
 public class gestionarArticuloImp implements gestionarArticulo {
-Scanner sc = new Scanner(System.in);
-  int ID_CATEGORIA=0;
-   int	ID_BODEGA=0;
-   String CODIGO_BARRA= " ";
-   String NOMBRE=" ";
-   float STOCK= 0;
-   float PRECIO_UNITARIO=0;
-   float PRECIO_TOTAL=0;
-   String FECHA_CADUCIDAD= "";
-   String DESCRIPCION="";
-   String ESTADO ="";
-   String UNIDAD_MEDIDA =" ";
+
 
     @Override
-    public void regsitrarArticulo() {
-         
-   
- 
-        try {
+    public void regsitrarArticulo(articulo art ) {
+       try {
             
-       articulo art = new articulo (ID_CATEGORIA,ID_BODEGA, CODIGO_BARRA,  NOMBRE,  PRECIO_TOTAL,  FECHA_CADUCIDAD,  STOCK, DESCRIPCION, PRECIO_UNITARIO, ESTADO,  UNIDAD_MEDIDA);
        articuloDao artDao = new articuloImp();
         artDao.save(art);
         
@@ -46,12 +31,10 @@ Scanner sc = new Scanner(System.in);
     }
 
     @Override
-    public void eliminarArticulo() {
-        int id_empleado;
+    public void eliminarArticulo(int id_empleado) {
+        
      
-        System.out.println("Please enter the id empleado");
-        id_empleado = sc.nextInt();
-         articulo art = new articulo  ();
+        articulo art = new articulo  ();
         articuloDao artDao = new articuloImp();
         
         artDao.delete(id_empleado);

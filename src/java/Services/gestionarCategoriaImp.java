@@ -24,15 +24,12 @@ public class gestionarCategoriaImp implements gestionarCategoria{
    public  Scanner sc = new Scanner(System.in); 
     
     @Override
-    public void regsitrarCategoria() {
+     public void regsitrarCategoria( categoriaArticulo categoria) {
         
-        String NOMBRE ="categoria1";
-        String DESCRIPCION="descripcionde la categoria 1";
-        
+             
         try {
-       categoriaArticulo cate = new categoriaArticulo (NOMBRE, DESCRIPCION);
        categoriaArticuloDao cateDao = new categoriaArticuloImp();
-        cateDao.save(cate);
+        cateDao.save(categoria);
         }catch (Exception e){
             e.getMessage();
         }

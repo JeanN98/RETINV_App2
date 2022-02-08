@@ -5,12 +5,14 @@
  */
 package Services;
 
+import model.categoriaArticulo;
+
 /**
  *
  * @author Stalin
  */
 public interface gestionarCategoria {
-    public void regsitrarCategoria();
+    public void regsitrarCategoria( categoriaArticulo categoria);
     public void eliminarCategoria();
     public void listarCategoria();
     public void modificarCategoria();

@@ -227,23 +227,20 @@
 								Nueva Categoría
 							</div>
 							<div class="full-width panel-content">
-								<form>
+								<form action="categoriaController">
 									<h5 class="text-condensedLight">Datos de Categoría</h5>
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameCategory">
+										<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameCategory" name="NOMBRE_CATEGORIA">
 										<label class="mdl-textfield__label" for="NameCategory">Nombre</label>
 										<span class="mdl-textfield__error">Nombre inválido</span>
 									</div>
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="descriptionCategory">
+										<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="descriptionCategory" name="DESCRIPCION_CATEGORIA">
 										<label class="mdl-textfield__label" for="descriptionCategory">Descrición</label>
 										<span class="mdl-textfield__error">Descripción inválida</span>
 									</div>
 									<p class="text-center">
-										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addCategory">
-											<i class="zmdi zmdi-plus"></i>
-										</button>
-										<div class="mdl-tooltip" for="btn-addCategory">Añadir categoría</div>
+										<input  class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit" value="ingresar" name="accion"> 
 									</p>
 								</form>
 							</div>

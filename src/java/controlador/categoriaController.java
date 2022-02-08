@@ -5,43 +5,37 @@
  */
 package controlador;
 
-import Services.usuario_cargoService;
-import Services.usuario_cargoServiceImp;
+import Services.gestionarCategoria;
+import Services.gestionarCategoriaImp;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.usuario_cargo;
+import model.categoriaArticulo;
 
 /**
  *
  * @author Stalin
  */
-public class adminController extends HttpServlet {
+public class categoriaController extends HttpServlet {
 
-    String gerente = "admin.jsp";
-    usuario_cargoService usuService = new  usuario_cargoServiceImp();
+    gestionarCategoria cateService = new gestionarCategoriaImp();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
          String action = request.getParameter("accion");
-         
-        if (action.equals("ingresar")){
+               if (action.equals("ingresar")){
             
-                String CI_ADMIN = request.getParameter("CI_ADMIN");
-                String NOMBRE_ADMIN = request.getParameter("NOMBRE_ADMIN");
-                String APELLIDO_ADMIN = request.getParameter("APELLIDO_ADMIN");
-                String PHONE_ADMIN = request.getParameter("PHONE_ADMIN");
-                String DIRECCION_ADMIN = request.getParameter("DIRECCION_ADMIN");
-                String USUARIO_ADMIN= request.getParameter("USUARIO_ADMIN");
-                String PASSWORD_ADMIN = request.getParameter("PASSWORD_ADMIN");
+                String NOMBRE_CATEGORIA = request.getParameter("NOMBRE_CATEGORIA");
+                String DESCRIPCION_CATEGORIA = request.getParameter("DESCRIPCION_CATEGORIA");
+               
                 
-                usuario_cargo usuario =  new  usuario_cargo (CI_ADMIN, 0, NOMBRE_ADMIN.concat(APELLIDO_ADMIN), PHONE_ADMIN, DIRECCION_ADMIN, USUARIO_ADMIN, PASSWORD_ADMIN);
+                categoriaArticulo Catarticulo =  new  categoriaArticulo (NOMBRE_CATEGORIA,  DESCRIPCION_CATEGORIA);
                 try{
-                 usuService.regsitrarUsuarios(usuario);
+                cateService.regsitrarCategoria(Catarticulo);
                  request.getRequestDispatcher("exito.jsp").forward(request, response);
                 }catch(Exception e ){
                    request.getRequestDispatcher("fracaso.jsp").forward(request, response);   

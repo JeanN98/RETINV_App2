@@ -127,9 +127,6 @@ public class CapaDeDatos {
         usuario_cargoDao usua= new usuariio_cargoImp();
         
        Inv.ArticulosSucursal(usu, 1);*/
-      empleadoService empleService = new   empleadoServiceImp();
-       empleado empleado = new empleado ( "060225544","Juanito Alimania","Nose", "01-03-2004", "01-01-1999",1);
-        empleService.regsitrarEmpleado(empleado);
     /* 
      if (validar.validarUsario("stalincopa2", "Admin")){
             System.out.println("El usuario exsite");

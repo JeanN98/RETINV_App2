@@ -13,8 +13,8 @@ import model.articulo;
  */
 public interface gestionarArticulo {
     
-    public void regsitrarArticulo();
-    public void eliminarArticulo();
+    public void regsitrarArticulo(articulo art);
+    public void eliminarArticulo(int id_empleado);
     public void listarArticulo();
     public void modificarArticulo(articulo articulo);
     public articulo buscarArticulo(int Id_Articulo);

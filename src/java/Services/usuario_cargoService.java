@@ -5,6 +5,7 @@
  */
 package Services;
 
+import java.util.List;
 import model.usuario_cargo;
 
 
@@ -17,7 +18,7 @@ public interface usuario_cargoService {
        
     public void regsitrarUsuarios(usuario_cargo usu);
     public void eliminarUsuarios ();
-    public void listarrUsuarios();
+    public List<usuario_cargo> listarrUsuarios();
     public void modificarrUsuarios();
     public usuario_cargo buscarrUsuarios(String ci_usuarioCargo);
     

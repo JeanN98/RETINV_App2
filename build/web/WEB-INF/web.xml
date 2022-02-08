@@ -29,6 +29,14 @@
         <servlet-name>sucursalController</servlet-name>
         <servlet-class>controlador.sucursalController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>categoriaController</servlet-name>
+        <servlet-class>controlador.categoriaController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>articuloController</servlet-name>
+        <servlet-class>controlador.articuloController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -52,6 +60,14 @@
     <servlet-mapping>
         <servlet-name>sucursalController</servlet-name>
         <url-pattern>/sucursalController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>categoriaController</servlet-name>
+        <url-pattern>/categoriaController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>articuloController</servlet-name>
+        <url-pattern>/articuloController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

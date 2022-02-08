@@ -5,6 +5,7 @@
  */
 package Services;
 
+import java.util.List;
 import model.empleado;
 
 /**
@@ -15,7 +16,7 @@ public interface empleadoService {
     
     public void regsitrarEmpleado(empleado emple);
     public void eliminarEmpelado();
-    public void listarEmpleados();
+    public List<empleado> listarEmpleados();
     public void modificarEmpleados();
     public empleado buscarEmpleado(String ci_empleado);
 }
